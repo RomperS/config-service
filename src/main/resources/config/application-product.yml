@@ -19,7 +19,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${USERNAME}:${PASSWORD}@${EUREKA_HOST:discovery-service}:${EUREKA_PORT:8761}/eureka
+      defaultZone: https://${USERNAME}:${PASSWORD}@${EUREKA_HOST:discovery-service}:${EUREKA_PORT:8761}/eureka
 
 management:
   endpoints:
