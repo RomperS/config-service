@@ -4,14 +4,17 @@ server:
 spring:
   application:
     name: config-service
-  profiles:
-    active: native
 
 eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://${USERNAME_}:${PASSWORD_}@localhost:8761/eureka
-
+      defaultZone: http://${USERNAME}:${PASSWORD}@localhost:8761/eureka
 
 management:
   endpoints:
@@ -21,7 +24,12 @@ management:
   endpoint:
     health:
       show-details: always
+  metrics:
+    enable:
+      jvm: true
+      process: true
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web: INFO
+    com.example.configservice: DEBUG
