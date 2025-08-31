@@ -19,16 +19,16 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${USERNAME}:${PASSWORD}@discovery-service:8761/eureka
+      defaultZone: http://${USERNAME_}:${PASSWORD_}@localhost:8761/eureka
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: health,info,metrics
   endpoint:
     health:
-      show-details: always
+      show-details: never
   metrics:
     enable:
       jvm: true
@@ -36,5 +36,5 @@ management:
 
 logging:
   level:
-    org.springframework.web: INFO
-    com.example.configservice: DEBUG
+    root: WARN
+    com.example.configservice: INFO
