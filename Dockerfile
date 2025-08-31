@@ -7,3 +7,4 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/config-service.jar config-service.jar
 CMD ["java", "-jar", "config-service.jar"]
+
